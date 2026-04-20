@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Maria</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #b88de0;
+            color: #3b2a52;
+            font-family: 'Georgia', serif;
+            min-height: 100vh;
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(180deg, #ddc6f5, #c9a8eb, #b88de0);
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #7a4fa8;
+            letter-spacing: 0.15em;
+            text-transform: lowercase;
+        }
+        .hero h1 {
+            font-size: 5rem;
+            color: #4b1f7a;
+            margin: 0.25rem 0;
+            font-style: italic;
+        }
+        
+        .countdown-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, #b88de0, #b88de0 40%, #b88de0);  
+            text-align: center;
+        }
+        .countdown-section h2 {
+            font-size: 1.8rem;
+            color: #6b3fa0;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+        .countdown-section .subtitle {
+        font-size: 1rem;
+        color: #9b72c8;
+        letter-spacing: 0.1em;
+        margin-bottom: 3rem;
+        }
+        .countdown-grid {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .countdown-box {
+            background: linear-gradient(160deg, #ddc6f5, #c9a8eb);
+            border-radius: 1rem;
+            padding: 1.5rem 2rem;
+            min-width: 110px;
+            box-shadow: 0 4px 20px rgba(180, 120, 220, 0.25);
+        }
+        .countdown-box .number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #4b1f7a;
+            line-height: 1;
+        }
+        .countdown-box .label {
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            color: #7a4fa8;
+            text-transform: uppercase;
+            margin-top: 0.4rem;
+        }
+        .letter-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #b88de0, #b88de0);
+        }
+        .letter-wrapper {
+            max-width: 680px;
+            width: 100%;
+            background: linear-gradient(160deg, #bd83d6, #e0bbf9);
+            border-radius: 1.5rem;
+            padding: 3.5rem 4rem;
+            box-shadow: 0 8px 40px rgba(160, 80, 200, 0.15);
+        }
+        .letter-heading {
+            text-align: center;
+            font-size: 1.6rem;
+            font-style: italic;
+            color: #6b3fa0;
+            margin-bottom: 2rem;
+        }
+        .letter-signature {
+            text-align: right;
+            margin-top: 2.5rem;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #7a4fa8;
+        }
+        .petal {
+            position: fixed;
+            top: -20px;
+            width: 12px;
+            height: 12px;
+            background: #ddc6f5;
+            border-radius: 50% 0 50% 0;
+            opacity: 0;
+            animation: fall linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        @keyframes fall {
+            0% { opacity: 0; transform: translateY(0) rotate(0deg); }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.5; }
+            100% { opacity: 0; transform: translateY(110vh) rotate(360deg); }
+        }
+        #music-btn {
+            margin-top: 2rem;
+            background: rgba(200, 160, 235, 0.3);
+            border: 2px solid #7a4fa8;
+            box-shadow: 0 4px 15px rgba(180, 120, 220, 0.3);
+            color: #7a4fa8;
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-size: 1rem;
+            cursor: pointer;
+            letter-spacing: 0.1em;
+        }
+        #music-btn:hover {
+            background: rgb(200, 160, 235, 0.2);
+        }
+        .gallery-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, #b88de0, #b88de0);
+        }
+        .gallery-heading {
+            font-size: 1.8rem;
+            font-style: italic;
+            color: #6b3fa0;
+            margin-bottom: 2.5rem;
+        }
+        .gallery-grid {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .gallery-img {
+            width: 280px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 8px 30px rgba(160, 80, 200, 0.2);
+        }
+        .footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(180deg, #b88de0, #4b1f7a);
+        }
+        .footer-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #f3e8ff;
+            max-width: 500px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.8;
+            letter-spacing: 0.05em;
+        }
+        .footer-name {
+            font-size: 0.9rem;
+            color: #c9a8eb;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <audio id="bg-music" src="our song.mp3" loop></audio>
+    <section class="hero">
+        <p>a letter for</p>
+        <h1>Maria</h1>
+        <p>From David, with all my heart!!</p>
+        <button id="music-btn" onclick="toggleMusic()">♪ Click here to play our song! </button>  
+    </section>
+    <section class="letter-section">
+        <div class="letter-wrapper">
+            <h2 class="letter-heading">My Dearest Maria,</h2>
+            <div class="letter-body">
+                <P>Your words here.</P>
+                <p>More words here.</p>
+            </div>
+            <div class="letter-signature">
+                with all my love, David your papas
+            </div>
+        </div>
+    </section>
+    <section class="gallery-section">
+        <h2 class="gallery-heading">us ♥</h2>
+        <div class="gallery-grid">
+            <img src="maria-photo-1.jpg" alt="us" class="gallery-img" />
+            <img src="Maria2.jpeg" alt="us" class="gallery-img" />
+            <img src="Maria3.jpeg" alt="us" class="gallery-img" />
+        </div>
+    </section>
+    <section class="countdown-section">
+        <h2>Countdown Timer</h2>
+        <p class="subtitle"> When Mamas comes home to me! ...... maybe</p>
+        <div class="countdown-grid">
+            <div class="countdown-box">
+                <div class="number" id="days">--</div>
+                <div class="label">Days</div>
+            </div>
+            <div class="countdown-box">
+                <div class="number" id="hours">--</div>
+                <div class="label">Hours</div>
+            </div>
+            <div class="countdown-box">
+                <div class="number" id="minutes">--</div>
+                <div class="label">Minutes</div>
+            </div>
+            <div class="countdown-box">
+                <div class="number" id="seconds">--</div>
+                <div class="label">Seconds</div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function toggleMusic() {
+            const music = document.getElementById('bg-music');
+            const btn = document.getElementById('music-btn');
+            if (music.paused) {
+                music.play();
+                btn.textContent = '♪ pause our song';
+            } else {                                                                                                                                                              
+                music.pause();
+                btn.textContent = '♪ play our song';
+            }
+        }
+        const target = new Date('2026-10-18T00:00:00');
+        function tick() {
+            const now = new Date();
+            const diff = target - now;
+            document.getElementById('days').textContent    = Math.floor(diff / 86400000);                                                                                     
+            document.getElementById('hours').textContent   = Math.floor((diff % 86400000) / 3600000);
+            document.getElementById('minutes').textContent = Math.floor((diff % 3600000) / 60000);                                                                            
+            document.getElementById('seconds').textContent = Math.floor((diff % 60000) / 1000);
+        }
+        tick();
+        setInterval(tick, 1000);
+
+        const colors = ['#ddc6f5', '#c9a8eb', '#f3e8ff', '#b88de0'];
+      for (let i = 0; i < 20; i++) {                                                                                                                                        
+          const p = document.createElement('div');
+          p.classList.add('petal');                                                                                                                                         
+          p.style.left = Math.random() * 100 + 'vw';                                                                                                                        
+          p.style.width = (8 + Math.random() * 10) + 'px';
+          p.style.height = p.style.width;                                                                                                                                   
+          p.style.background = colors[Math.floor(Math.random() * colors.length)];
+          p.style.animationDuration = (6 + Math.random() * 8) + 's';                                                                                                        
+          p.style.animationDelay = (Math.random() * 10) + 's';                                                                                                              
+          document.body.appendChild(p); 
+      }
+
+    </script>
+    <footer class="footer">
+        <p class="footer-quote">"Someday soon, the distance will just be a chapter in our story." </p>
+        <p class="footer-name">David & Maria - Forever</p>
+    </footer>
+</body>
+</html>
+
+
